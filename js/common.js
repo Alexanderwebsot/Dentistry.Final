@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  let modal_counter = 0;
   $(".phone").mask("+7 (999) 999-9999");
   $('.modal-window__exit').on('click', function() {
     let modal = $('.dark-window');
@@ -142,4 +143,15 @@ $(document).ready(function () {
       $(this).addClass('questions-block__active');
     }
   })
+  $(document).mouseleave(function(e){
+    if (e.clientY < 10) {
+      if (modal_counter == 0) {
+        let modal = $('.dark-window');
+        $(modal).removeClass('dark-window__close');
+        let modal_2 = $('.modav-window-zapis');
+        $(modal_2).removeClass('dark-window__close');
+      }
+      modal_counter = 1;
+    }
+});
 });
